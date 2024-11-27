@@ -1,8 +1,14 @@
 import { Button } from "@/components/ui/button";
 import { useRef } from "react";
 import { Card, CardContent } from "../components/ui/card";
+import { useNavigate } from "react-router-dom";
 
 function Dashboard() {
+  const navigate = useNavigate();
+
+  const handleRedirect = () => {
+    navigate("/data"); // Ganti dengan route yang diinginkan
+  };
   const readRef = useRef<HTMLDivElement>(null);
   const scrollToSection = (ref: React.RefObject<HTMLDivElement>) => {
     ref.current?.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -135,7 +141,9 @@ function Dashboard() {
         <h1 className="text-black w-3/4">
           Penasaran Dengan Sebaran Stunting di Indonesia?
         </h1>
-        <Button className="mt-6 p-3">Selanjutnya</Button>
+        <Button onClick={handleRedirect} className="mt-6 p-3">
+          Selanjutnya
+        </Button>
       </div>
     </div>
   );
